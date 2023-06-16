@@ -1,0 +1,5 @@
+- name: Include control-plane play
+  ansible.builtin.import_playbook: controlplane.yml
+
+- name: Include data-plane play
+  ansible.builtin.import_playbook: dataplane.yml

@@ -1,0 +1,5 @@
+[controlplane]
+<hostname or ip address here> ansible_connection=ssh ansible_user=your-username-here
+
+[dataplane]
+<hostname or ip address here> ansible_connection=ssh ansible_user=your-username-here

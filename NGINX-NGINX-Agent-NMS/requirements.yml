@@ -1,0 +1,13 @@
+---
+roles:
+  - name: nginxinc.nginx_management_suite
+    version: 0.2.0
+collections:
+  - name: ansible.posix
+    version: 1.5.1
+  - name: community.general
+    version: 6.4.0
+  - name: community.crypto
+    version: 2.11.0
+  - name: community.docker # Only required if you plan to use Molecule (see below)
+    version: 3.4.2

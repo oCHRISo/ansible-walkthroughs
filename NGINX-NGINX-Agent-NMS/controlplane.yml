@@ -1,0 +1,21 @@
+---
+- name: Deploy control-plane
+  hosts: controlplane
+  become: true
+  tasks:
+    - name: Check control-plane for single host
+      fail: msg="Playbook requires to have a single host for the control-plane."
+      when: "{{ play_hosts|length }} != 1"
+    
+    - name: Install NMS
+      ansible.builtin.include_role:
+        name: ansible-role-nginx-management-suite
+      vars:
+        nms_setup: install
+        nms_user_passwd: 'Password123'
+        nginx_selinux: false
+        nginx_selinux_enforcing: false
+        nms_remove_certs: false
+        nginx_license:
+          certificate: license/nginx-repo.crt
+          key: license/nginx-repo.key
